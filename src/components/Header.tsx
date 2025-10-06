@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 interface HeaderProps {
   activeSection: string;
@@ -10,7 +11,7 @@ export default function Header({ activeSection }: HeaderProps) {
   return (
     <header>
       <div className="flex justify-center">
-        <a href="/">
+        <Link href="/">
           <Image
             src="/logo-chinese.png"
             alt="Logo"
@@ -18,7 +19,7 @@ export default function Header({ activeSection }: HeaderProps) {
             height={100}
             priority
           />
-        </a>
+        </Link>
       </div>
       <nav className="flex justify-center gap-8">
         <a 
