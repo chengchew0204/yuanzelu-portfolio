@@ -107,7 +107,7 @@ export default function Gallery() {
               data-index={index}
               className={`transition-all duration-700 ease-out cursor-pointer hover:scale-105 ${
                 expandedImage === index 
-                  ? "w-[50%]" 
+                  ? "w-[95%] sm:w-[70%] md:w-[50%]" 
                   : "w-[calc(33.333%-0.5rem)] sm:w-[calc(25%-0.5rem)] md:w-[calc(16.666%-0.5rem)] lg:w-[calc(12.5%-0.5rem)] xl:w-[calc(10%-0.5rem)]"
               } ${
                 visibleImages.has(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
@@ -138,7 +138,7 @@ export default function Gallery() {
               data-index={index}
               className={`transition-all duration-700 ease-out cursor-pointer hover:scale-105 ${
                 expandedImage === index 
-                  ? "w-[50%]" 
+                  ? "w-[95%] sm:w-[70%] md:w-[50%]" 
                   : "w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(25%-1rem)] lg:w-[calc(20%-1rem)]"
               } ${
                 visibleImages.has(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
@@ -173,10 +173,14 @@ export default function Gallery() {
                 key={index}
                 data-index={index}
                 className={`transition-all duration-700 ease-out cursor-pointer hover:scale-105 ${
+                  isExpanded 
+                    ? "w-[95%] sm:w-[70%] md:w-[50%]" 
+                    : ""
+                } ${
                   visibleImages.has(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
                 }`}
                 style={{ 
-                  width: isExpanded ? "50%" : `${baseWidth}px`,
+                  width: isExpanded ? undefined : `${baseWidth}px`,
                   marginBottom: "1rem",
                   transitionDelay: visibleImages.has(index) ? `${index * 100}ms` : "0ms"
                 }}
