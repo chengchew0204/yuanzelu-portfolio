@@ -8,10 +8,17 @@ interface HeaderProps {
 }
 
 export default function Header({ activeSection }: HeaderProps) {
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.history.pushState({}, '', '/');
+    window.dispatchEvent(new HashChangeEvent('hashchange'));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <header>
       <div className="flex justify-center">
-        <Link href="/">
+        <Link href="/" onClick={handleLogoClick}>
           <Image
             src="/logo-chinese.png"
             alt="Logo"
